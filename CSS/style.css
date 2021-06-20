@@ -218,13 +218,15 @@ body {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.2);
-    opacity: 0.9;
+    opacity: 1;
+    visibility: visible;
     z-index: 999;
 
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden {
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
 }
 
@@ -532,15 +534,16 @@ body {
     text-align: center;
     cursor: pointer;
     border: 0px solid transparent;
+    border-radius: 4px;
     padding: 10px 32px;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button:hover,
 .button:focus {
     color: var(--white-color);
     background-color: var(--accent-color);
     border: 0px var(--accent-color);
-    border-radius: 4px;
+    /* border-radius: 4px; */
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
     
 }
@@ -560,7 +563,10 @@ body {
     margin-right: 30px;
     margin-bottom: 30px;
     border: 0px solid #EEEEEE;
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+.example-item>a {
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .example-img {
@@ -598,8 +604,8 @@ body {
     transform: translateY(0);
 }
 
-.example-item:hover,
-.example-item:focus {
+.example-item>a:hover,
+.example-item>a:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
